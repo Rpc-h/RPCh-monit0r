@@ -50,6 +50,6 @@ while True:
     print(f"number of timeouts: {numTimeouts}")
     print(f"number of requests that didn't time out book took over {timeout}s: {numOverThreshold}")
     plt.plot(df["latencies"], "bo")
-    plt.savefig("plots/rpch.png")
+    plt.savefig("/mnt/rpch.png")
 
     time.sleep(2)
