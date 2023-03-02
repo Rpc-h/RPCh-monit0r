@@ -27,7 +27,7 @@ timeout = 5
 web3 = Web3(Web3.HTTPProvider(endpoint, request_kwargs={'timeout': timeout}))
 results = []
 
-dfAll = pd.read_csv("output/latencies.csv", compression="zip")
+dfAll = pd.read_csv("/mnt/latencies.csv", compression="zip")
 dfAll["time"] = dfAll["time"].astype("datetime64[s]")
 dfAll = dfAll.set_index("time")
 
@@ -58,20 +58,20 @@ while True:
     newFig()
     plt.plot(dfAllGotResponse["latency"], "bx")
     plt.plot(dfAllNoResponse["latency"], "rx")
-    plt.savefig("output/latencies-all.png")
+    plt.savefig("/mnt/latencies-all.png")
 
     plt.figure(1)
     newFig()
     plt.plot(df24hGotResponse["latency"], "bx")
     plt.plot(df24hNoResponse["latency"], "rx")
-    plt.savefig("output/latencies-24h.png")
+    plt.savefig("/mnt/latencies-24h.png")
 
     plt.figure(2)
     newFig()
     plt.plot(df1hGotResponse["latency"], "bx")
     plt.plot(df1hNoResponse["latency"], "rx")
-    plt.savefig("output/latencies-1h.png")
+    plt.savefig("/mnt/latencies-1h.png")
 
-    dfAll.to_csv("output/latencies.csv", compression="zip")
+    dfAll.to_csv("/mnt/latencies.csv", compression="zip")
 
     time.sleep(2)
